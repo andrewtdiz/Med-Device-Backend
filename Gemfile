@@ -14,8 +14,10 @@ gem 'puma', '~> 4.1'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Use Mongoid library for MongoDB integration
 gem 'mongoid', '~> 7.0.5'
 
+# Use graphQL
 gem "graphql"
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -29,6 +31,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Development mode uses GraphiQL for visualizing and testing queries/methods
   gem 'graphiql-rails'
 end
 

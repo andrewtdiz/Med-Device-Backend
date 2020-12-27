@@ -1,7 +1,7 @@
 development:
   clients:
     default:
-      uri: mongodb+srv://andrew:2lxRE8UrhkpSmhAh@cluster0.2pshv.gcp.mongodb.net/med_devices?retryWrites=true&w=majority
+      uri: 
       options:
         server_selection_timeout: 5
         # Note that all options listed below are Ruby driver client options (the mongo gem).
