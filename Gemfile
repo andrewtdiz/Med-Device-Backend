@@ -17,6 +17,8 @@ gem 'puma', '~> 4.1'
 # Use Mongoid library for MongoDB integration
 gem 'mongoid', '~> 7.0.5'
 
+gem 'rack-cors'
+
 # Use graphQL
 gem "graphql"
 
