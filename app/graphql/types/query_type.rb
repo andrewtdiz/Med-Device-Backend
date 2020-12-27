@@ -1,9 +1,6 @@
 module Types
   class QueryType < Types::BaseObject
-    field :users, [Types::UserType], null: false
-
-    def users
-      User.all
-    end
+    field :users, resolver: Queries::User::Users
+    field :companies, resolver: Queries::Company::Companys
   end
 end

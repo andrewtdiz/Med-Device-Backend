@@ -1,16 +1,15 @@
-class Mutations::Company::AddUser < Mutations::BaseMutation
+class Mutations::Company::AddDevice < Mutations::BaseMutation
 
     argument :companyID, ID, required: true
-    argument :userID, ID, required: true
+    argument :deviceID, ID, required: true
   
     field :company, Types::CompanyType, null: true
     field :errors, [String], null: false
   
-    def resolve(companyID:, userID:)
+    def resolve(companyID:, deviceID:)
       company = Company.find(companyID)
-      user = User.find(userID)
-      Company.where(id: companyID).find_one_and_update({ :$push => {user_ids: BSON::ObjectId.from_string(userID)}})
-      if User.where(id: userID).find_one_and_update({ :$push => {company_ids: BSON::ObjectId.from_string(companyID)}})
+      device = Device.find(deviceID)
+      if Company.where(id: companyID).find_one_and_update( :$push => {device_ids: BSON::ObjectId.from_string(deviceID)})
         {
             company: company,
             errors: [],

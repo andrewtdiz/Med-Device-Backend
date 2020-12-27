@@ -9,7 +9,9 @@ class Mutations::Company::CreateCompany < Mutations::BaseMutation
   
     def resolve(name:, description:, userID:)
       user = User.find(userID)
-      company = Company.create(name: name, description: description, users: [user])
+      company = Company.create(name: name, description: description)
+      company.users = [user]
+      company.devices = []
       if company.save
         {
             company: company,
